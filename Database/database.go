@@ -20,7 +20,7 @@ func ConnectDataBase() {
 	//db.AutoMigrate(&models.Order{})
 	db.AutoMigrate(&Models.Category{})
 	//db.AutoMigrate(&models.Payment{})
-	//db.AutoMigrate(&models.Product{})
+	db.AutoMigrate(&Models.Item{})
 	//db.AutoMigrate(&models.Delivery{})
 	//db.AutoMigrate(&models.User{})
 
