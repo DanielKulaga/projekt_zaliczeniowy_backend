@@ -22,7 +22,7 @@ func ConnectDataBase() {
 	//db.AutoMigrate(&models.Payment{})
 	db.AutoMigrate(&Models.Item{})
 	//db.AutoMigrate(&models.Delivery{})
-	//db.AutoMigrate(&models.User{})
+	db.AutoMigrate(&Models.User{})
 
 	Database = db
 	fmt.Printf("Database connected!")
