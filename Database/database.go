@@ -11,7 +11,7 @@ var Database *gorm.DB = nil
 
 func ConnectDataBase() {
 	// GORM configuration
-	db, err := gorm.Open(sqlite.Open("./database/restaurant.db"), &gorm.Config{})
+	db, err := gorm.Open(sqlite.Open("./Database/restaurant.db"), &gorm.Config{})
 	if err != nil {
 		panic("failed to connect database")
 	}
