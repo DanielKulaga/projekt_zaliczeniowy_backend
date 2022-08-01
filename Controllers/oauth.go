@@ -24,7 +24,7 @@ func getGoogleConf() *oauth2.Config {
 	conf := &oauth2.Config{
 		ClientID:     os.Getenv("CLIENT_IDENTIFICATOR_GOOGLE"),
 		ClientSecret: os.Getenv("CLIENT_SECRET_GOOGLE"),
-		RedirectURL:  "http://localhost:1323/google/callback",
+		RedirectURL:  "https://restaurant-ruczaj-server.azurewebsites.net/google/callback",
 		Scopes: []string{
 			"https://www.googleapis.com/auth/userinfo.email",
 			"https://www.googleapis.com/auth/userinfo.profile",
@@ -39,7 +39,7 @@ func getGithubConf() *oauth2.Config {
 	conf := &oauth2.Config{
 		ClientID:     os.Getenv("CLIENT_IDENTIFICATOR_GITHUB"),
 		ClientSecret: os.Getenv("CLIENT_SECRET_GITHUB"),
-		RedirectURL:  "http://localhost:1323/github/callback",
+		RedirectURL:  "https://restaurant-ruczaj-server.azurewebsites.net/github/callback",
 		Scopes: []string{
 			"user:email",
 			"read:user",
@@ -108,7 +108,7 @@ func GoogleCallback(c echo.Context) error {
 
 	log.Printf("Redirect")
 
-	c.Redirect(http.StatusFound, "http://localhost:3000/login/success?token="+userToken+"&email="+oauthUser.Email)
+	c.Redirect(http.StatusFound, "https://restaurant-ruczaj.azurewebsites.net/login/success?token="+userToken+"&email="+oauthUser.Email)
 
 	return c.JSON(http.StatusOK, "Login successfully")
 }
@@ -173,7 +173,7 @@ func GithubCallback(c echo.Context) error {
 
 	log.Printf("Redirect")
 
-	c.Redirect(http.StatusFound, "http://localhost:3000/login/success?token="+userToken+"&email="+oauthUser.Email)
+	c.Redirect(http.StatusFound, "https://restaurant-ruczaj.azurewebsites.net/login/success?token="+userToken+"&email="+oauthUser.Email)
 
 	return c.JSON(http.StatusOK, "Login successfully")
 }
