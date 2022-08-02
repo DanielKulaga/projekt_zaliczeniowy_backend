@@ -33,6 +33,8 @@ func main() {
 	e.GET("/login/github", Controllers.GithubLogin)
 	e.GET("/google/callback", Controllers.GoogleCallback)
 	e.GET("/github/callback", Controllers.GithubCallback)
+	e.POST("/order", Controllers.CreateOrderToDatabase)
+	e.POST("/address", Controllers.AddAddressToDatabase)
 	e.Logger.Fatal(e.Start(":1323"))
 
 }
