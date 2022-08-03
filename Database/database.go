@@ -17,11 +17,11 @@ func ConnectDataBase() {
 	}
 
 	//Migrate the schema
-	//db.AutoMigrate(&models.Order{})
+	db.AutoMigrate(&Models.Order{})
 	db.AutoMigrate(&Models.Category{})
 	//db.AutoMigrate(&models.Payment{})
 	db.AutoMigrate(&Models.Item{})
-	//db.AutoMigrate(&models.Delivery{})
+	db.AutoMigrate(&Models.Address{})
 	db.AutoMigrate(&Models.User{})
 
 	Database = db
