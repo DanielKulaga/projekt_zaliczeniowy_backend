@@ -21,3 +21,16 @@ func AddAddressToDatabase(c echo.Context) error {
 
 	return c.JSON(http.StatusOK, addressDetails)
 }
+
+func GetAddressFromDatabase(c echo.Context) error {
+	id := c.Param("id")
+	var address Models.Address
+
+	fmt.Printf("Get address with order_id: " + id + "\n")
+
+	if result := Database.Database.Where("order_id", id).Find(&address); result.Error != nil {
+		return c.String(http.StatusNotFound, "Database Error")
+	}
+
+	return c.JSON(http.StatusOK, address)
+}
