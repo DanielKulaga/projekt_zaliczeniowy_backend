@@ -36,6 +36,7 @@ func main() {
 	e.POST("/order", Controllers.CreateOrderToDatabase)
 	e.POST("/address", Controllers.AddAddressToDatabase)
 	e.GET("/order/:id", Controllers.GetOrderFromDatabase)
+	e.GET("/order", Controllers.GetOrdersFromDatabase)
 	e.GET("/address/:id", Controllers.GetAddressFromDatabase)
 	e.Logger.Fatal(e.Start(":1323"))
 

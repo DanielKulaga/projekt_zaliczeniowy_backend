@@ -34,3 +34,15 @@ func GetOrderFromDatabase(c echo.Context) error {
 
 	return c.JSON(http.StatusOK, order)
 }
+
+func GetOrdersFromDatabase(c echo.Context) error {
+	var order []Models.Order
+
+	fmt.Printf("Get orders" + "\n")
+
+	if result := Database.Database.Find(&order); result.Error != nil {
+		return c.String(http.StatusNotFound, "Database Error")
+	}
+
+	return c.JSON(http.StatusOK, order)
+}
