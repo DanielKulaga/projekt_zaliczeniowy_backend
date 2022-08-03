@@ -22,8 +22,6 @@ func HandleCreatePaymentIntent(c echo.Context) error {
 		return c.String(http.StatusBadRequest, "Bad payment "+err.Error())
 	}
 
-	//Database.Database.Create(payment)
-
 	// Create a PaymentIntent with amount and currency
 	params := &stripe.PaymentIntentParams{
 		Amount:      stripe.Int64(int64(payment.Amount * 100)),
