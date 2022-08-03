@@ -35,6 +35,8 @@ func main() {
 	e.GET("/github/callback", Controllers.GithubCallback)
 	e.POST("/order", Controllers.CreateOrderToDatabase)
 	e.POST("/address", Controllers.AddAddressToDatabase)
+	e.GET("/order/:id", Controllers.GetOrderFromDatabase)
+	e.GET("/address/:id", Controllers.GetAddressFromDatabase)
 	e.Logger.Fatal(e.Start(":1323"))
 
 }
